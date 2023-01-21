@@ -34,7 +34,7 @@ function mensagemNaTela(mensagens){
         }else if(mensagens[i].type === "private_message"){
             conteudo += `
                 <div class="reservada mensagem">
-                    <p><span>(${mensagens[i].time})</span>  <strong>${mensagens[i].from}</strong> reservadamente para <strong>${mensagens[i].to}:</strong>  ${mensagens.text}</p>
+                    <p><span>(${mensagens[i].time})</span>  <strong>${mensagens[i].from}</strong> reservadamente para <strong>${mensagens[i].to}:</strong>  ${mensagens[i].text}</p>
                 </div>
             `
         }
@@ -58,6 +58,7 @@ function pegadoServidor(){
 }
 
 function deuCerto(resposta){
+    //console.log(resposta);
     setInterval(mantemConexao, 5000);
     setInterval(pegadoServidor, 3000);
 }
@@ -65,8 +66,24 @@ function deuCerto(resposta){
 function deuErrado(erro){
     console.log("Deu erro");
     console.log(erro);
-    alert("Usuario já logado, tente outro usuario");
+    alert("Usuario já logado ou usuario deslogado, tente outro usuario");
     inicia(); 
+}
+
+function enviaMensagem(){
+    const mensagemInput = document.querySelector("footer input");
+    //const nomeRemetente = prompt("Digite o nome do remetente");
+    //console.log(mensagemInput.value);
+    const mensagemEnvio = {
+        from: login.name,
+        to: "Todos",
+        text: mensagemInput.value,
+        type: "message" // ou "private_message" para o bônus
+    }
+    mensagemInput.value = "";
+    const promessa = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", mensagemEnvio);
+    promessa.then(pegadoServidor);
+    promessa.catch(deuErrado);
 }
 
 function inicia(){
