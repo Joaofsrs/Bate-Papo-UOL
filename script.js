@@ -1,6 +1,6 @@
-const login = {
-    name: "Pedrinho"
-};
+let nomeUsuario;
+let login = {};
+let ultimaMensagem;
 
 function retornaConexao(resposta){
     if(resposta.status !== 200){
@@ -41,7 +41,10 @@ function mensagemNaTela(mensagens){
     }
     mainTela.innerHTML = conteudo;
     const elementoQueQueroQueApareca = document.querySelectorAll('.mensagem');
-    elementoQueQueroQueApareca[elementoQueQueroQueApareca.length-1].scrollIntoView();
+    if(ultimaMensagem !== elementoQueQueroQueApareca[elementoQueQueroQueApareca.length-1].innerHTML){
+        elementoQueQueroQueApareca[elementoQueQueroQueApareca.length-1].scrollIntoView();
+        ultimaMensagem = elementoQueQueroQueApareca[elementoQueQueroQueApareca.length-1].innerHTML;
+    }
 }
 
 function processaMensagens(resposta){
@@ -62,17 +65,19 @@ function deuCerto(resposta){
 function deuErrado(erro){
     console.log("Deu erro");
     console.log(erro);
+    alert("Usuario já logado, tente outro usuario");
+    inicia(); 
 }
 
 function inicia(){
-    const continuar = prompt("Digite alguma coisa para continuar");
+    nomeUsuario = prompt("Digite o nome de Usuario");
+    login.name = nomeUsuario;
+    console.log(login);
 
-    if(continuar === "1"){
-        const promessa = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", login);
+    const promessa = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", login);
 
-        promessa.then(deuCerto);
-        promessa.catch(deuErrado);
-    }
+    promessa.then(deuCerto);
+    promessa.catch(deuErrado);
 }
 
 inicia();
