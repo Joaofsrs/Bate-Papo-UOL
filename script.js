@@ -21,19 +21,19 @@ function mensagemNaTela(mensagens){
     for(let i = 0; i < mensagens.length; i++){
         if(mensagens[i].type === "status"){
             conteudo += `
-                <div class="servidor mensagem">
+                <div data-test="message" class="servidor mensagem">
                     <p><span>(${mensagens[i].time})</span>  <strong>${mensagens[i].from}</strong>  ${mensagens[i].text}</p>
                 </div>
             `
         }else if(mensagens[i].type === "message"){
             conteudo += `
-                <div class="publica mensagem">
+                <div data-test="message" class="publica mensagem">
                     <p><span>(${mensagens[i].time})</span>  <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}:</strong>  ${mensagens[i].text}</p>
                 </div>
             `
         }else if(mensagens[i].type === "private_message"){
             conteudo += `
-                <div class="reservada mensagem">
+                <div data-test="message" class="reservada mensagem">
                     <p><span>(${mensagens[i].time})</span>  <strong>${mensagens[i].from}</strong> reservadamente para <strong>${mensagens[i].to}:</strong>  ${mensagens[i].text}</p>
                 </div>
             `
