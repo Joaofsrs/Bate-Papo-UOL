@@ -33,6 +33,7 @@ header ion-icon{
 
 main{
     margin-top: 20px;
+    margin-bottom: 100px;
     background-color: #F1F1F1;
 }
 
@@ -78,7 +79,7 @@ footer{
     justify-content: space-between;
     position: fixed;
     bottom: 0;
-    z-index: 100;
+    z-index: 10000;
 }
 
 footer ion-icon{
