@@ -64,10 +64,10 @@ function deuCerto(){
 }
 
 function deuErrado(erro){
-    console.log("Deu erro");
+    console.log("Deu erro ");
     console.log(erro);
     alert("Usuario já logado ou usuario deslogado, tente outro usuario");
-    window.location.reload()
+    window.location.reload();
 }
 
 function enviaMensagem(){
