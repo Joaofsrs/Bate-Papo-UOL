@@ -176,3 +176,36 @@ aside h3{
 .esconde{
     display: none;
 }
+
+.tela_inicial{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.tela_inicial img{
+    position: absolute;
+    width: 130px;
+    height: 92px;
+    top: 50px;
+}
+
+.tela_inicial input{
+    width: 261px;
+    height: 54px;
+    text-align: center;
+}
+
+.tela_inicial button{
+    margin-top: 40px;
+    width: 110px;
+    height: 45px;
+    background-color: #E7E7E7;
+    color: #696969;
+    border: none;
+    border-radius: 9px;
+}

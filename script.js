@@ -5,7 +5,7 @@ let pauseAtualizacao;
 
 function retornaConexao(resposta){
     if(resposta.status === 400){
-        console.log("Deu erro na conexão")
+        console.log("Deu erro na conexão");
         console.log("Erro numero "+resposta.status);
     }
 }
@@ -61,10 +61,14 @@ function pegadoServidor(){
 function deuCerto(){
     setInterval(mantemConexao, 5000);
     pauseAtualizacao = setInterval(pegadoServidor, 3000);
+    const esconde = document.querySelector(".tela_inicial");
+    const aparece = document.querySelector(".tudo");
+    esconde.classList.add("esconde");
+    aparece.classList.remove("esconde");
 }
 
 function deuErrado(erro){
-    console.log("Deu erro ");
+    console.log("Deu erro");
     console.log(erro);
     alert("Usuario já logado ou usuario deslogado, tente outro usuario");
     window.location.reload();
@@ -78,7 +82,7 @@ function enviaMensagem(){
             to: "Todos",
             text: mensagemInput.value,
             type: "message"
-        }
+        };
         mensagemInput.value = "";
         const promessa = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", mensagemEnvio);
         promessa.then(pegadoServidor);
@@ -108,10 +112,6 @@ function escolheMensagem(){
 }
 
 function inicia(){
-    nomeUsuario = prompt("Digite o nome de Usuario");
-    login.name = nomeUsuario;
-    console.log(login);
-
     const promessa = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", login);
 
     promessa.then(deuCerto);
@@ -125,4 +125,10 @@ document.addEventListener("keypress", function(tecla) {
     }
 });
 
-inicia();
+function iniciaPrograma(){
+    const input = document.querySelector(".tela_inicial input");
+    login.name = input.value;
+    inicia();
+}
+
+//inicia();
