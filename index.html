@@ -16,7 +16,7 @@
             <div class="principal">
                 <header>
                     <img src="./img/logo.png">
-                    <ion-icon name="people"></ion-icon>                
+                    <ion-icon name="people" onclick="escolheMensagem();"></ion-icon>                
                 </header>
                 <main>
                     
@@ -27,7 +27,7 @@
                 </footer>
             </div>
         </div>
-        <aside>
+        <aside class="esconde">
             <h3>
                 Escolha um contato para enviar mensagem:
             </h3>
@@ -37,19 +37,21 @@
                         <ion-icon name="people"></ion-icon>
                         <p>Todos</p>
                     </div>
-                    <ion-icon name="checkmark"></ion-icon>
+                    <ion-icon class="check PessoaEscolhida" name="checkmark"></ion-icon>
                 </li>
                 <li>
                     <div>
                         <ion-icon name="person-circle"></ion-icon>
                         <p>João</p>
                     </div>
+                    <ion-icon class="check" name="checkmark"></ion-icon>
                 </li>
                 <li>
                     <div>
                         <ion-icon name="person-circle"></ion-icon>
                         <p>Maria</p>
                     </div>
+                    <ion-icon class="check" name="checkmark"></ion-icon>
                 </li>
             </ul>
             <h3>
@@ -61,13 +63,14 @@
                         <ion-icon name="lock-open"></ion-icon>
                         <p>Público</p>
                     </div>
-                    <ion-icon name="checkmark"></ion-icon>
+                    <ion-icon class="check TipoEscolhido" name="checkmark"></ion-icon>
                 </li>
                 <li>
                     <div>
                         <ion-icon name="lock-closed"></ion-icon>
                         <p>Reservadamente</p>
-                    </div>
+                    </div>  
+                    <ion-icon class="check" name="checkmark"></ion-icon>
                 </li>
             </ul>
         </aside>

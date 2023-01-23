@@ -15,8 +15,9 @@ header{
     background-color: #FFFFFF;
     justify-content: space-between;
     box-shadow: 0px 4px 3px #c7c7cc;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 100;
 }
 
@@ -32,7 +33,7 @@ header ion-icon{
 }
 
 main{
-    margin-top: 20px;
+    margin-top: 100px;
     margin-bottom: 100px;
     background-color: #F1F1F1;
 }
@@ -79,12 +80,17 @@ footer{
     justify-content: space-between;
     position: fixed;
     bottom: 0;
-    z-index: 10000;
+    z-index: 100;
 }
 
 footer ion-icon{
     font-size: 40px;
     margin-right: 10px;
+}
+
+ion-icon:hover{
+    cursor: pointer;
+    color: gray;
 }
 
 footer input{
@@ -95,21 +101,24 @@ footer input{
     margin-left: 10px;
 }
 
+.tudo{
+    position: relative;
+}
+
 .opaco{
+    background-color: black;
     opacity: 40%;
-    z-index: 102;
+    z-index: 1000;
 }
 
 aside{
-    display: none;
     width: 60%;
-    min-height: 100vh;
-    max-height: 100vh;
+    height: 100vh;
     background-color: #FFFFFF;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
-    z-index: 110;
+    z-index: 10000;
 }
 
 aside ul li{
@@ -123,16 +132,34 @@ aside ul li{
 }
 
 aside ul li div{
-    display: flex;
+    display: flex; 
     align-items: center;
+}
+
+aside li:hover{
+    cursor: pointer;
+}
+
+aside li p:hover{
+    cursor: pointer;
+    color: gray;
 }
 
 aside ion-icon{
     font-size: 20px;
 }
 
-aside li ion-icon{
+aside .check{
+    display: none;
     color: #28BB25;
+}
+
+aside .PessoaEscolhida{
+    display: block;
+}
+
+aside .TipoEscolhido{
+    display: block;
 }
 
 aside li div ion-icon{
@@ -144,4 +171,8 @@ aside h3{
     font-size: 20px;
     text-align: center;
     margin: 20px 10px;
+}
+
+.esconde{
+    display: none;
 }
